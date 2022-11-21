@@ -1,0 +1,69 @@
+.CopyItem {
+    box-shadow: 0 0.2em 1em -0.3em #000;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    margin: 1em;
+    min-width: 10em;
+}
+
+.CopyItem p {
+    text-align: center;
+    padding: 2em;
+}
+
+.CopyItem.copied::before {
+    content: 'copied';
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    transition: all linear 0.3;
+    z-index: 100;
+}
+
+.CopyItem-actions{
+    background-color: hsl(0, 100%, 80%);
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    opacity: 0;
+    transition: opacity linear 300ms;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.CopyItem:hover .CopyItem-actions {
+    opacity: 0.95;
+}
+
+.CopyItem-actions button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.CopyItem-actions button:hover {
+    background-color:hsl(0, 100%, 70%);
+}
+
+.CopyItem-actions button:nth-child(2) {
+    border-top-right-radius: 10px;
+}
+
+.CopyItem-actions button:last-child {
+    grid-column: 1/-1;
+    border-bottom-right-radius: 10px;
+}

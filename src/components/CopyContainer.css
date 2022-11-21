@@ -1,0 +1,57 @@
+.CopyContainer {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.warn {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    width: 25%;
+    padding: 1em;
+    animation-duration: 1s;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0.2em 1em -0.3em #000;
+    background-color: #023047;
+    color: #fff;
+    opacity: 1;
+    z-index: 200;
+}
+
+.warn::before {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background-color: #f00;
+    position: inherit;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: disappearingBorder;
+    animation-duration: 3000ms;
+    animation-timing-function: linear;
+}
+
+@keyframes disappearingBorder {
+    0% {
+        width: 100%;
+    }
+
+    25% {
+        width: 75%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    75% {
+        width: 25%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
