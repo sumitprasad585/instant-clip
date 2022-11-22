@@ -5,6 +5,7 @@
     position: relative;
     margin: 1em;
     min-width: 10em;
+    display: inline-block;
 }
 
 .CopyItem p {

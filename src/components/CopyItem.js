@@ -5,13 +5,11 @@ class CopyItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false,
-      fontSize: 1
+      clicked: false
     };
     this.handleCopy = this.handleCopy.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.increaseFontSize = this.increaseFontSize.bind(this);
-    this.decreaseFontSize = this.decreaseFontSize.bind(this);
+    this.handleFontChange = this.handleFontChange.bind(this);
   }
 
   handleCopy(e) {
@@ -30,22 +28,12 @@ class CopyItem extends Component {
     this.props.delete(this.props.id);
   }
 
-  increaseFontSize(e) {
-    e.preventDefault();
-    this.setState(prev => {
-      return {fontSize: prev.fontSize + 0.1 };
-    })
-  }
-
-  decreaseFontSize(e) {
-    e.preventDefault();
-    this.setState(prev => {
-      return {fontSize: prev.fontSize - 0.1 };
-    })
+  handleFontChange(e) {
+    this.props.changeFontSize(this.props.id, e.target.innerHTML);
   }
 
   render() {
-    const fontSize = this.state.fontSize + 'em';
+    const fontSize = this.props.fontSize + 'em';
     return (
       <div className={`CopyItem ${this.state.clicked ? "copied" : ""}`}>
         <div
@@ -56,8 +44,8 @@ class CopyItem extends Component {
           <p style={{fontSize: fontSize}}>{this.props.text}</p>
         </div>
         <div className="CopyItem-actions">
-          <button onClick={this.increaseFontSize}>+</button>
-          <button onClick={this.decreaseFontSize}>-</button>
+          <button onClick={this.handleFontChange}>+</button>
+          <button onClick={this.handleFontChange}>-</button>
           <button title="Delete Item" onClick={this.handleDelete}>
             <i className="fa fa-trash"></i>
           </button>
