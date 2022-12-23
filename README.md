@@ -6,6 +6,8 @@ Basic Features
 - Delete content
 - Increase or decrease size for focus (currently experimental)
 
+## View Demo [Click Here](https://instantclip.netlify.app/)
+
 ## How to run
 ### `npm install`
 'npm install' in the project directory to download the dependencies
